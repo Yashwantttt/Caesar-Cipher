@@ -1,0 +1,35 @@
+puts "Enter string for encryption"
+input_string = gets.chop
+
+puts "Enter the amount of shift"
+shift_from_user = gets.chop.to_i
+
+
+def caesar_cipher(str , shift)
+  puts "Original String is #{str}"
+  string_array = str.split("")
+  new_array = []
+  i = 0
+  while i < string_array.length 
+      if string_array[i] == " "
+        new_array.push(" ")
+
+      elsif string_array[i].to_i == 0
+        char = string_array[i]
+        initial_ascii = char.ord
+        final_ascii = initial_ascii + shift
+        final_char = final_ascii.chr 
+        new_array.push(final_char)
+        
+      else 
+        the_number = string_array[i]
+        new_array.push(the_number)
+      end
+      i = i + 1
+  end
+  new_string = new_array.join("")
+  puts "The new string is #{new_string}"
+end
+
+
+caesar_cipher(input_string,shift_from_user)
